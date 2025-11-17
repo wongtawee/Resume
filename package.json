@@ -1,0 +1,24 @@
+{
+  "name": "portfolio-web-app",
+  "version": "1.0.0",
+  "description": "Personal Portfolio Web Application with React, Tailwind CSS and Node.js",
+  "scripts": {
+    "install:all": "npm install && cd frontend && npm install && cd ../backend && npm install",
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:backend": "cd backend && npm run dev",
+    "build": "cd frontend && npm run build",
+    "test": "npm run test:backend && npm run test:frontend",
+    "test:backend": "cd backend && npm test",
+    "test:frontend": "cd frontend && npm test",
+    "prepare": "husky install"
+  },
+  "keywords": ["portfolio", "react", "tailwind", "nodejs", "mongodb"],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^9.0.1",
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.10"
+  }
+}
