@@ -1,43 +1,22 @@
-import { useState, useEffect } from 'react';
-import { profileAPI } from '../services/api';
 import ContactInfo from '../components/contact/ContactInfo';
-import Loading from '../components/common/Loading';
-import ErrorMessage from '../components/common/ErrorMessage';
+import { profileData } from '../data/profileData';
 
 const Contact = () => {
-  const [profile, setProfile] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    const fetchProfile = async () => {
-      try {
-        setLoading(true);
-        const response = await profileAPI.getProfile();
-        setProfile(response.data);
-      } catch (err) {
-        setError(err.response?.data?.message || 'Failed to load contact info');
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchProfile();
-  }, []);
-
-  if (loading) return <Loading />;
-  if (error) return <ErrorMessage message={error} />;
-  if (!profile) return <ErrorMessage message="Contact information not found" />;
-
   return (
-    <div className="container-custom py-12">
-      <h1 className="text-4xl md:text-5xl font-heading font-bold text-center mb-4">
-        Get In Touch
-      </h1>
-      <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-        Feel free to reach out to me through any of the following channels
-      </p>
-      <ContactInfo profile={profile} />
+    <div className="container-custom py-16">
+      {/* Header with Animation */}
+      <div className="text-center mb-16 animate-fade-in">
+        <h1 className="text-5xl md:text-6xl font-heading font-bold mb-4">
+          <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+            Get In Touch
+          </span>
+        </h1>
+        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          Feel free to reach out to me through any of the following channels. I'd love to hear from you!
+        </p>
+      </div>
+
+      <ContactInfo profile={profileData} />
     </div>
   );
 };

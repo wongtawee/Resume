@@ -1,41 +1,21 @@
-# Dependencies
+# Backend (not needed)
+backend/
+
+# Root node_modules
 node_modules/
-package-lock.json
-yarn.lock
-pnpm-lock.yaml
 
-# Environment variables
-.env
-.env.local
-.env.production
-.env.*.local
+# Specs
+.kiro/
 
-# IDE
+# Documentation (local only)
+STRUCTURE.md
+CLEANUP_INSTRUCTIONS.md
+DEPLOYMENT_GUIDE.md
+
+# Editor
 .vscode/
 .idea/
-*.swp
-*.swo
-*.sublime-project
-*.sublime-workspace
-
-# Kiro (AI assistant files)
-.kiro/
 
 # OS
 .DS_Store
 Thumbs.db
-*.log
-
-# Build outputs
-dist/
-build/
-*.tsbuildinfo
-
-# Testing
-coverage/
-.nyc_output/
-
-# Misc
-.cache/
-temp/
-tmp/

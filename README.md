@@ -1,248 +1,200 @@
-# 🎨 Personal Portfolio Web App
+# Portfolio Website
 
-A modern, full-stack portfolio website built with React 19, Tailwind CSS, Node.js, Express, and MongoDB.
+A modern, responsive portfolio website built with React and Tailwind CSS. Features beautiful animations and a clean design to showcase your work and skills.
 
 ## ✨ Features
 
-- 🏠 **Home Page** - Introduction with profile image and social links
-- 📄 **Resume Page** - Education, work experience, and skills
-- 💼 **Work Page** - Portfolio projects showcase
-- 📧 **Contact Page** - Contact information and social media links
-- 🎨 **Modern UI** - Built with Tailwind CSS and React Icons
-- 📱 **Responsive Design** - Works on all devices
-- ⚡ **Fast Performance** - Powered by Vite and React 19
-- 🔒 **Secure API** - Express with Helmet, CORS, and Rate Limiting
+- 🎨 Modern and clean design with smooth animations
+- 📱 Fully responsive (mobile, tablet, desktop)
+- ⚡ Fast and lightweight (static site - no backend needed)
+- 🎭 Beautiful UI with gradient effects and hover animations
+- 🌈 Customizable color schemes
+- 📝 Easy to update - just edit one data file
 
-## 🛠️ Tech Stack
-
-### Frontend
-
-- **React 19.0** - Latest React version
-- **Vite 6.0** - Next generation frontend tooling
-- **React Router 7.0** - Client-side routing
-- **Tailwind CSS 3.4** - Utility-first CSS framework
-- **React Icons 5.3** - Popular icon library
-- **Axios 1.7** - HTTP client
-
-### Backend
-
-- **Node.js** - JavaScript runtime
-- **Express 5.0** - Web framework
-- **Mongoose 8.8** - MongoDB ODM
-- **Express Validator** - Request validation
-- **Helmet** - Security headers
-- **CORS** - Cross-origin resource sharing
-- **Compression** - Response compression
-
-### Database
-
-- **MongoDB** - NoSQL database
-
-## 📦 Installation
+## 🚀 Quick Start
 
 ### Prerequisites
 
-- Node.js 20.x or higher
-- MongoDB (local or MongoDB Atlas)
-- Git
+- Node.js (v18 or higher)
+- npm or yarn
 
-### Clone Repository
+### Installation
+
+1. Clone the repository
 
 ```bash
 git clone <your-repo-url>
-cd resume
+cd resume/frontend
 ```
 
-### Install Dependencies
+2. Install dependencies
 
 ```bash
-# Install root dependencies
-npm install
-
-# Install frontend dependencies
-cd frontend
-npm install
-
-# Install backend dependencies
-cd ../backend
 npm install
 ```
 
-### Environment Variables
+3. Update your personal information
+   Edit `src/data/profileData.js` with your own information:
 
-#### Backend (.env)
+- Personal details (name, title, bio)
+- Contact information
+- Social media links
+- Education history
+- Work experience
+- Skills
+- Projects/Portfolio
 
-Create `backend/.env` file:
-
-```env
-PORT=5000
-MONGODB_URI=mongodb://localhost:27017/portfolio
-NODE_ENV=development
-
-# For MongoDB Atlas:
-# MONGODB_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/portfolio
-```
-
-#### Frontend (.env)
-
-Create `frontend/.env` file:
-
-```env
-VITE_API_URL=http://localhost:5000
-```
-
-## 🚀 Running the Application
-
-### Development Mode
-
-#### Run Both Frontend and Backend
+4. Start the development server
 
 ```bash
 npm run dev
 ```
 
-#### Run Frontend Only
+5. Open your browser and visit `http://localhost:5173`
 
-```bash
-npm run dev:frontend
+## 📝 Customization
+
+### Update Your Information
+
+All your personal data is stored in one file: `frontend/src/data/profileData.js`
+
+```javascript
+export const profileData = {
+  name: "Your Name",
+  title: "Your Title",
+  bio: "Your bio...",
+  // ... more fields
+};
 ```
 
-#### Run Backend Only
+### Change Colors
 
-```bash
-npm run dev:backend
+Edit `frontend/src/index.css` to customize the color scheme:
+
+```css
+:root {
+  --color-primary: #3b82f6; /* Change primary color */
+  --color-secondary: #8b5cf6; /* Change secondary color */
+  /* ... more colors */
+}
 ```
 
-### Production Build
+### Add Your Own Images
 
-#### Build Frontend
+Replace the placeholder images in `profileData.js` with your own:
+
+- Profile image
+- Project thumbnails
+
+You can use:
+
+- Local images in `frontend/public/images/`
+- External URLs (e.g., from your own hosting)
+
+## 🏗️ Build for Production
 
 ```bash
 npm run build
 ```
 
-#### Start Backend
+The build files will be in `frontend/dist/` directory.
+
+## 🚀 Deployment
+
+This is a static site and can be deployed to:
+
+### Vercel (Recommended)
+
+1. Push your code to GitHub
+2. Import project in Vercel
+3. Set build command: `cd frontend && npm run build`
+4. Set output directory: `frontend/dist`
+5. Deploy!
+
+### Netlify
+
+1. Push your code to GitHub
+2. Import project in Netlify
+3. Set build command: `cd frontend && npm run build`
+4. Set publish directory: `frontend/dist`
+5. Deploy!
+
+### GitHub Pages
 
 ```bash
-cd backend
-npm start
+npm run build
+# Then push the dist folder to gh-pages branch
 ```
 
-## 📡 API Endpoints
+## 📦 Tech Stack
 
-### Profile
+- **Frontend Framework:** React 18
+- **Build Tool:** Vite
+- **Styling:** Tailwind CSS
+- **Icons:** React Icons
+- **Routing:** React Router
 
-- `GET /api/profile` - Get profile data
-- `POST /api/profile` - Create profile
-- `PUT /api/profile/:id` - Update profile
-
-### Works
-
-- `GET /api/works` - Get all works
-- `GET /api/works?featured=true` - Get featured works
-- `GET /api/works/:id` - Get single work
-- `POST /api/works` - Create work
-- `PUT /api/works/:id` - Update work
-- `DELETE /api/works/:id` - Delete work
-
-### Health Check
-
-- `GET /health` - Server health check
-
-## 📁 Project Structure
+## 📄 Project Structure
 
 ```
-resume/
-├── frontend/                # React frontend
-│   ├── src/
-│   │   ├── components/     # React components
-│   │   ├── pages/          # Page components
-│   │   ├── services/       # API services
-│   │   ├── App.jsx         # Main app component
-│   │   └── main.jsx        # Entry point
-│   ├── public/             # Static assets
-│   └── package.json
-│
-├── backend/                 # Express backend
-│   ├── config/             # Configuration files
-│   ├── controllers/        # Route controllers
-│   ├── models/             # Mongoose models
-│   ├── routes/             # API routes
-│   ├── server.js           # Entry point
-│   └── package.json
-│
-└── package.json            # Root package.json
+frontend/
+├── src/
+│   ├── assets/          # Static assets
+│   ├── components/      # Reusable components
+│   │   ├── contact/     # Contact page components
+│   │   ├── home/        # Home page components
+│   │   ├── layout/      # Layout components (Header)
+│   │   ├── resume/      # Resume page components
+│   │   └── work/        # Work/Projects page components
+│   ├── data/            # Your personal data
+│   │   └── profileData.js  # ⭐ Edit this file!
+│   ├── pages/           # Page components
+│   ├── App.jsx          # Main app component
+│   ├── main.jsx         # Entry point
+│   └── index.css        # Global styles
+├── public/              # Static assets
+└── package.json
 ```
 
-## 🎯 Development Workflow
+## 🎨 Pages
 
-1. **Start MongoDB** (if using local)
+- **Home** - Hero section with your introduction
+- **Resume** - Education, experience, and skills
+- **Work** - Portfolio/projects showcase
+- **Contact** - Contact information and social links
 
-   ```bash
-   mongod
-   ```
+## 📱 Responsive Design
 
-2. **Run Development Servers**
+The website is fully responsive and optimized for:
 
-   ```bash
-   npm run dev
-   ```
-
-3. **Access Application**
-   - Frontend: http://localhost:3000
-   - Backend: http://localhost:5000
-   - API Docs: http://localhost:5000
-
-## 🧪 Testing
-
-```bash
-# Run all tests
-npm test
-
-# Run backend tests
-npm run test:backend
-
-# Run frontend tests
-npm run test:frontend
-```
-
-## 📝 TODO
-
-- [ ] Add authentication for admin panel
-- [ ] Implement image upload functionality
-- [ ] Add contact form with email service
-- [ ] Add blog section
-- [ ] Implement dark mode
-- [ ] Add animations and transitions
-- [ ] SEO optimization
-- [ ] Performance optimization
+- Mobile devices (320px+)
+- Tablets (768px+)
+- Desktops (1024px+)
+- Large screens (1280px+)
 
 ## 🤝 Contributing
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+Feel free to fork this project and customize it for your own use!
 
 ## 📄 License
 
-This project is licensed under the ISC License.
+MIT License - feel free to use this for your own portfolio!
 
-## 👤 Author
+## 💡 Tips
 
-Your Name
+1. **Images**: Use optimized images for better performance
+2. **SEO**: Update the `index.html` title and meta tags
+3. **Analytics**: Add Google Analytics or similar in `index.html`
+4. **Custom Domain**: Configure your custom domain in your hosting provider
 
-- GitHub: [@yourusername](https://github.com/yourusername)
-- LinkedIn: [Your Name](https://linkedin.com/in/yourprofile)
+## 🐛 Issues?
 
-## 🙏 Acknowledgments
+If you encounter any issues, please check:
 
-- React Team for React 19
-- Tailwind CSS Team
-- MongoDB Team
-- All open source contributors
+1. Node.js version (should be 18+)
+2. All dependencies are installed
+3. You're running commands from the correct directory
 
 ---
 
-Made with ❤️ and ☕
+Made with ❤️ using React and Tailwind CSS
